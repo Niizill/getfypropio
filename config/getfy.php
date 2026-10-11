@@ -78,16 +78,16 @@ return [
      */
     'plugin_store_api_url' => rtrim((string) env('PLUGIN_STORE_API_URL', 'https://getfy.org'), '/'),
 
-    'app_name' => 'Getfy',
+    'app_name' => 'MenuzaPay',
     'theme_primary' => '#74d909',
-    'app_logo' => 'https://cdn.getfy.cloud/logo-white-v3.png',
-    'app_logo_dark' => 'https://cdn.getfy.cloud/logo-dark-v3.png',
-    'app_logo_icon' => 'https://cdn.getfy.cloud/collapsed-logo-v3.png',
-    'app_logo_icon_dark' => 'https://cdn.getfy.cloud/collapsed-logo-v2.png',
+    'app_logo' => '/brand/menuzapay-logo.png',
+    'app_logo_dark' => '/brand/menuzapay-logo.png',
+    'app_logo_icon' => '/brand/menuzapay-icon.png',
+    'app_logo_icon_dark' => '/brand/menuzapay-icon.png',
 
     /** White Label plugin (null = default / não aplicado) */
     'login_hero_image' => null,
-    'favicon_url' => '/brand/favicon.png',
+    'favicon_url' => '/brand/menuzapay-icon.png',
     'pwa_theme_color' => null,
     /** Ícone do PWA (painel). Usado no manifest e no “Adicionar à tela inicial”. */
     'pwa_icon' => '/icons/icon.png',
