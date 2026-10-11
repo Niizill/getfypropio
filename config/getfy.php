@@ -78,19 +78,19 @@ return [
      */
     'plugin_store_api_url' => rtrim((string) env('PLUGIN_STORE_API_URL', 'https://getfy.org'), '/'),
 
-    'app_name' => 'MenuzaPay',
-    'theme_primary' => '#74d909',
-    'app_logo' => '/brand/menuzapay-logo.png',
-    'app_logo_dark' => '/brand/menuzapay-logo.png',
-    'app_logo_icon' => '/brand/menuzapay-icon.png',
-    'app_logo_icon_dark' => '/brand/menuzapay-icon.png',
+    'app_name' => 'Lagartixa Pay',
+    'theme_primary' => '#facc15',
+    'app_logo' => '/brand/lagartixapay-logo.webp',
+    'app_logo_dark' => '/brand/lagartixapay-logo.webp',
+    'app_logo_icon' => '/brand/lagartixapay-icon.png',
+    'app_logo_icon_dark' => '/brand/lagartixapay-icon.png',
 
     /** White Label plugin (null = default / não aplicado) */
-    'login_hero_image' => null,
-    'favicon_url' => '/brand/menuzapay-icon.png',
+    'login_hero_image' => '/brand/lagartixapay-mascot.webp',
+    'favicon_url' => '/brand/lagartixapay-icon.png',
     'pwa_theme_color' => null,
     /** Ícone do PWA (painel). Usado no manifest e no “Adicionar à tela inicial”. */
-    'pwa_icon' => '/icons/icon.png',
-    'pwa_icon_192' => '/icons/icon.png',
-    'pwa_icon_512' => '/icons/icon.png',
+    'pwa_icon' => '/brand/lagartixapay-icon.png',
+    'pwa_icon_192' => '/brand/lagartixapay-icon.png',
+    'pwa_icon_512' => '/brand/lagartixapay-icon.png',
 ];

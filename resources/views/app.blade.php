@@ -105,24 +105,103 @@
     <script src="{{ $asset['url'] }}" @if(!empty($asset['defer'])) defer @endif data-plugin-script="{{ $asset['handle'] }}"></script>
     @endforeach
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    {{-- MenuzaPay: override the precompiled Getfy sidebar's small 148x36 logo slot. --}}
+    {{-- Lagartixa Pay: branding overrides for the precompiled Getfy panel and login. --}}
     <style>
-        aside > div:has(img[src*="/brand/menuzapay-logo.png"]) {
+        aside > div:has(img[src*="/brand/lagartixapay-logo.webp"]) {
             padding-top: 12px !important;
             padding-bottom: 12px !important;
         }
-        aside a[href="/dashboard"] > div:has(> img[src*="/brand/menuzapay-logo.png"]) {
-            width: 184px !important;
-            height: 64px !important;
+        aside a[href="/dashboard"] > div:has(> img[src*="/brand/lagartixapay-logo.webp"]) {
+            width: 188px !important;
+            height: 66px !important;
             min-width: 0 !important;
         }
-        aside img[src*="/brand/menuzapay-logo.png"] {
-            width: 184px !important;
-            height: 64px !important;
+        aside img[src*="/brand/lagartixapay-logo.webp"] {
+            width: 188px !important;
+            height: 66px !important;
             max-width: none !important;
             max-height: none !important;
             object-fit: contain !important;
             object-position: left center !important;
+        }
+        .wl-root {
+            background: #080808 !important;
+            color: #f4f4f5;
+        }
+        .wl-root > div:first-child {
+            background: linear-gradient(160deg, #171717 0%, #090909 76%) !important;
+            border-color: #262626 !important;
+        }
+        .wl-root > div:first-child h1,
+        .wl-root > div:first-child .text-zinc-900 {
+            color: #fafafa !important;
+        }
+        .wl-root > div:first-child p,
+        .wl-root > div:first-child label {
+            color: #b5b5b5 !important;
+        }
+        .wl-root > div:first-child .bg-white,
+        .wl-root > div:first-child .dark\:bg-zinc-800\/40 {
+            background: #171717 !important;
+            border-color: #303030 !important;
+        }
+        .wl-root .wl-input {
+            background: #111113 !important;
+            color: #fff !important;
+            border-color: #3e3e42 !important;
+        }
+        .wl-root .wl-input::placeholder { color: #85858b !important; }
+        .wl-root .wl-input:focus {
+            border-color: #facc15 !important;
+            box-shadow: 0 0 0 3px rgba(250,204,21,.18) !important;
+        }
+        .wl-root .wl-submit {
+            background: #facc15 !important;
+            color: #111 !important;
+        }
+        .wl-root .wl-link { color: #facc15 !important; }
+        .wl-root header img[src*="/brand/lagartixapay-logo.webp"] {
+            width: 240px !important;
+            height: 77px !important;
+            max-width: 240px !important;
+            object-fit: contain !important;
+            object-position: left center !important;
+        }
+        .wl-root > div:last-child {
+            background:
+                radial-gradient(ellipse at 82% 20%, rgba(255,207,38,.21), transparent 49%),
+                radial-gradient(ellipse at 42% 95%, rgba(235,163,15,.12), transparent 57%),
+                linear-gradient(135deg,#080808 0%,#15120a 52%,#090909 100%) !important;
+        }
+        .wl-root > div:last-child > div:first-child {
+            background: none !important;
+            opacity: 0 !important;
+        }
+        .wl-root > div:last-child > img[src*="/brand/lagartixapay-mascot.webp"] {
+            position: absolute !important;
+            inset: auto 0 0 auto !important;
+            width: auto !important;
+            height: 92% !important;
+            max-width: 88% !important;
+            object-fit: contain !important;
+            object-position: right bottom !important;
+            filter: drop-shadow(0 15px 35px rgba(0,0,0,.58));
+        }
+        .wl-root > div:last-child > div:nth-child(3) {
+            background: linear-gradient(to top, rgba(0,0,0,.83), transparent 55%) !important;
+        }
+        .wl-root > div:last-child > div:last-child {
+            z-index: 2 !important;
+        }
+        .wl-root > div:last-child > div:last-child > p:first-child {
+            color: #facc15 !important;
+        }
+        @media (max-width: 420px) {
+            .wl-root header img[src*="/brand/lagartixapay-logo.webp"] {
+                width: 195px !important;
+                max-width: 195px !important;
+                height: 65px !important;
+            }
         }
     </style>
 </head>
