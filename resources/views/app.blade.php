@@ -105,6 +105,26 @@
     <script src="{{ $asset['url'] }}" @if(!empty($asset['defer'])) defer @endif data-plugin-script="{{ $asset['handle'] }}"></script>
     @endforeach
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- MenuzaPay: override the precompiled Getfy sidebar's small 148x36 logo slot. --}}
+    <style>
+        aside > div:has(img[src*="/brand/menuzapay-logo.png"]) {
+            padding-top: 12px !important;
+            padding-bottom: 12px !important;
+        }
+        aside a[href="/dashboard"] > div:has(> img[src*="/brand/menuzapay-logo.png"]) {
+            width: 184px !important;
+            height: 64px !important;
+            min-width: 0 !important;
+        }
+        aside img[src*="/brand/menuzapay-logo.png"] {
+            width: 184px !important;
+            height: 64px !important;
+            max-width: none !important;
+            max-height: none !important;
+            object-fit: contain !important;
+            object-position: left center !important;
+        }
+    </style>
 </head>
 <body class="antialiased">
     @if($isMemberArea)
