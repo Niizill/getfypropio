@@ -18,7 +18,7 @@ class CheckoutTrackingController extends Controller
     {
         $validated = $request->validate([
             'session_token' => ['required', 'string', 'max:64'],
-            'product_id' => ['required', 'integer', 'exists:products,id'],
+            'product_id' => ['required', 'uuid', 'exists:products,id'],
             'product_offer_id' => ['nullable', 'integer', 'exists:product_offers,id'],
             'subscription_plan_id' => ['nullable', 'integer', 'exists:subscription_plans,id'],
             'checkout_slug' => ['required', 'string', 'max:32'],
