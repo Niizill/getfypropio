@@ -183,7 +183,7 @@ function closeFlyout() {
     >
         <div
             :class="[
-                'flex items-center px-4 py-5',
+                'flex items-center px-4 py-3',
                 showText() ? 'justify-between gap-2' : 'lg:justify-center',
             ]"
         >
@@ -195,12 +195,12 @@ function closeFlyout() {
                     class="flex min-w-0 flex-1 items-center gap-2 overflow-hidden text-zinc-900 dark:text-white"
                 >
                     <template v-if="hasLogoFull()">
-                        <div class="flex h-9 w-[148px] shrink-0 items-center justify-start">
+                        <div class="flex h-[62px] w-full max-w-[188px] min-w-0 items-center justify-start">
                             <img
                                 v-if="appSettings().app_logo"
                                 :src="appSettings().app_logo"
                                 :alt="appName()"
-                                class="max-h-9 max-w-[148px] object-contain object-left"
+                                class="h-[62px] w-full object-contain object-left"
                                 :class="appSettings().app_logo_dark ? 'dark:hidden' : ''"
                                 @error="retryImageOnError"
                             />
@@ -208,7 +208,7 @@ function closeFlyout() {
                                 v-if="appSettings().app_logo_dark"
                                 :src="appSettings().app_logo_dark"
                                 :alt="appName()"
-                                class="hidden max-h-9 max-w-[148px] object-contain object-left dark:block"
+                                class="hidden h-[62px] w-full object-contain object-left dark:block"
                                 @error="retryImageOnError"
                             />
                         </div>
