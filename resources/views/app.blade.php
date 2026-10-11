@@ -105,102 +105,111 @@
     <script src="{{ $asset['url'] }}" @if(!empty($asset['defer'])) defer @endif data-plugin-script="{{ $asset['handle'] }}"></script>
     @endforeach
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    {{-- Lagartixa Pay: branding overrides for the precompiled Getfy panel and login. --}}
+    {{-- Lagartixa Pay: responsive logo and distinct light/dark login themes, independent of cached Vite assets. --}}
     <style>
-        aside > div:has(img[src*="/brand/lagartixapay-logo.webp"]) {
-            padding-top: 12px !important;
-            padding-bottom: 12px !important;
-        }
+        aside > div:has(img[src*="/brand/lagartixapay-logo.webp"]) {padding-block:12px !important;}
         aside a[href="/dashboard"] > div:has(> img[src*="/brand/lagartixapay-logo.webp"]) {
-            width: 188px !important;
-            height: 66px !important;
-            min-width: 0 !important;
+            width:188px !important;height:66px !important;min-width:0 !important;
         }
         aside img[src*="/brand/lagartixapay-logo.webp"] {
-            width: 188px !important;
-            height: 66px !important;
-            max-width: none !important;
-            max-height: none !important;
-            object-fit: contain !important;
-            object-position: left center !important;
+            width:188px !important;height:66px !important;max-width:none !important;
+            max-height:none !important;object-fit:contain !important;object-position:left center !important;
         }
-        .wl-root {
-            background: #080808 !important;
-            color: #f4f4f5;
+
+        /* CLARO: branco e amarelo suave, mantendo o seletor de tema ativo. */
+        html:not(.dark) .wl-root {background:#fffdf4 !important;color:#161616 !important;}
+        html:not(.dark) .wl-root > div:first-child {
+            background:linear-gradient(155deg,#ffffff 0%,#fffbea 66%,#fff5c9 100%) !important;
+            border-color:#f0e6c3 !important;
         }
-        .wl-root > div:first-child {
-            background: linear-gradient(160deg, #171717 0%, #090909 76%) !important;
-            border-color: #262626 !important;
+        html:not(.dark) .wl-root > div:first-child h1,
+        html:not(.dark) .wl-root > div:first-child .text-zinc-900 {color:#181818 !important;}
+        html:not(.dark) .wl-root > div:first-child p,
+        html:not(.dark) .wl-root > div:first-child label {color:#5a5545 !important;}
+        html:not(.dark) .wl-root > div:first-child .bg-white,
+        html:not(.dark) .wl-root > div:first-child .dark\\:bg-zinc-800\\/40 {
+            background:#fff !important;border-color:#eddfb5 !important;
+            box-shadow:0 8px 38px rgba(75,51,5,.065) !important;
         }
-        .wl-root > div:first-child h1,
-        .wl-root > div:first-child .text-zinc-900 {
-            color: #fafafa !important;
+        html:not(.dark) .wl-root .wl-input {
+            background:#fffefa !important;color:#181818 !important;border-color:#d9cfb8 !important;
         }
-        .wl-root > div:first-child p,
-        .wl-root > div:first-child label {
-            color: #b5b5b5 !important;
+        html:not(.dark) .wl-root .wl-input::placeholder {color:#817b6d !important;}
+        html:not(.dark) .wl-root header img[src*="/brand/lagartixapay-logo.webp"] {
+            background:#191919 !important;border-radius:12px;padding:7px 11px;box-sizing:border-box;
         }
-        .wl-root > div:first-child .bg-white,
-        .wl-root > div:first-child .dark\:bg-zinc-800\/40 {
-            background: #171717 !important;
-            border-color: #303030 !important;
-        }
-        .wl-root .wl-input {
-            background: #111113 !important;
-            color: #fff !important;
-            border-color: #3e3e42 !important;
-        }
-        .wl-root .wl-input::placeholder { color: #85858b !important; }
-        .wl-root .wl-input:focus {
-            border-color: #facc15 !important;
-            box-shadow: 0 0 0 3px rgba(250,204,21,.18) !important;
-        }
-        .wl-root .wl-submit {
-            background: #facc15 !important;
-            color: #111 !important;
-        }
-        .wl-root .wl-link { color: #facc15 !important; }
-        .wl-root header img[src*="/brand/lagartixapay-logo.webp"] {
-            width: 240px !important;
-            height: 77px !important;
-            max-width: 240px !important;
-            object-fit: contain !important;
-            object-position: left center !important;
-        }
-        .wl-root > div:last-child {
+        html:not(.dark) .wl-root > div:last-child {
             background:
-                radial-gradient(ellipse at 82% 20%, rgba(255,207,38,.21), transparent 49%),
-                radial-gradient(ellipse at 42% 95%, rgba(235,163,15,.12), transparent 57%),
+                radial-gradient(ellipse at 77% 27%,rgba(255,208,65,.38),transparent 55%),
+                linear-gradient(140deg,#fffefa 0%,#fff4cb 60%,#fce5a8 100%) !important;
+        }
+        html:not(.dark) .wl-root > div:last-child > div:nth-child(3) {
+            background:linear-gradient(to top,rgba(255,250,229,.97),rgba(255,250,229,0) 65%) !important;
+        }
+        html:not(.dark) .wl-root > div:last-child > div:last-child > p {
+            color:#202020 !important;
+        }
+
+        /* ESCURO: preto e amarelo, sem forçar a aparência do modo claro. */
+        html.dark .wl-root {background:#080808 !important;color:#fafafa !important;}
+        html.dark .wl-root > div:first-child {
+            background:linear-gradient(160deg,#171717 0%,#090909 76%) !important;
+            border-color:#262626 !important;
+        }
+        html.dark .wl-root > div:first-child h1,
+        html.dark .wl-root > div:first-child .text-zinc-900 {color:#fafafa !important;}
+        html.dark .wl-root > div:first-child p,
+        html.dark .wl-root > div:first-child label {color:#b5b5b5 !important;}
+        html.dark .wl-root > div:first-child .bg-white,
+        html.dark .wl-root > div:first-child .dark\\:bg-zinc-800\\/40 {
+            background:#171717 !important;border-color:#303030 !important;
+        }
+        html.dark .wl-root .wl-input {
+            background:#111113 !important;color:#fff !important;border-color:#3e3e42 !important;
+        }
+        html.dark .wl-root .wl-input::placeholder {color:#85858b !important;}
+        html.dark .wl-root > div:last-child {
+            background:
+                radial-gradient(ellipse at 82% 20%,rgba(255,207,38,.21),transparent 49%),
+                radial-gradient(ellipse at 42% 95%,rgba(235,163,15,.12),transparent 57%),
                 linear-gradient(135deg,#080808 0%,#15120a 52%,#090909 100%) !important;
         }
-        .wl-root > div:last-child > div:first-child {
-            background: none !important;
-            opacity: 0 !important;
+        html.dark .wl-root > div:last-child > div:nth-child(3) {
+            background:linear-gradient(to top,rgba(0,0,0,.83),transparent 58%) !important;
         }
+        html.dark .wl-root > div:last-child > div:last-child > p {color:#fff !important;}
+
+        /* Shared login details */
+        .wl-root .wl-input:focus {
+            border-color:#eab308 !important;box-shadow:0 0 0 3px rgba(234,179,8,.19) !important;
+        }
+        .wl-root .wl-submit {background:#facc15 !important;color:#121212 !important;}
+        .wl-root .wl-link {color:#d69200 !important;}
+        html.dark .wl-root .wl-link {color:#facc15 !important;}
+        .wl-root header img[src*="/brand/lagartixapay-logo.webp"] {
+            width:240px !important;height:77px !important;max-width:240px !important;
+            object-fit:contain !important;object-position:left center !important;
+        }
+        .wl-root > div:last-child > div:first-child {background:none !important;opacity:0 !important;}
         .wl-root > div:last-child > img[src*="/brand/lagartixapay-mascot.webp"] {
-            position: absolute !important;
-            inset: auto 0 0 auto !important;
-            width: auto !important;
-            height: 92% !important;
-            max-width: 88% !important;
-            object-fit: contain !important;
-            object-position: right bottom !important;
-            filter: drop-shadow(0 15px 35px rgba(0,0,0,.58));
+            position:absolute !important;inset:auto 0 0 auto !important;width:auto !important;
+            height:92% !important;max-width:88% !important;object-fit:contain !important;
+            object-position:right bottom !important;
+            filter:drop-shadow(0 15px 35px rgba(0,0,0,.21));
         }
-        .wl-root > div:last-child > div:nth-child(3) {
-            background: linear-gradient(to top, rgba(0,0,0,.83), transparent 55%) !important;
+        html.dark .wl-root > div:last-child > img[src*="/brand/lagartixapay-mascot.webp"] {
+            filter:drop-shadow(0 15px 35px rgba(0,0,0,.6));
         }
-        .wl-root > div:last-child > div:last-child {
-            z-index: 2 !important;
-        }
+        .wl-root > div:last-child > div:last-child {z-index:2 !important;}
         .wl-root > div:last-child > div:last-child > p:first-child {
-            color: #facc15 !important;
+            color:#c08100 !important;
         }
-        @media (max-width: 420px) {
+        html.dark .wl-root > div:last-child > div:last-child > p:first-child {
+            color:#facc15 !important;
+        }
+        @media(max-width:420px) {
             .wl-root header img[src*="/brand/lagartixapay-logo.webp"] {
-                width: 195px !important;
-                max-width: 195px !important;
-                height: 65px !important;
+                width:195px !important;max-width:195px !important;height:65px !important;
             }
         }
     </style>
